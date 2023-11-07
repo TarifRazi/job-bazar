@@ -5,7 +5,7 @@ import userImg from '../assets/user.png'
 
 const NavBar = () => {
     return (
-        <div>
+        <div className="sticky z-[999]">
             <div className="navbar bg-base-100">
                 <div className="flex-1">
                     <a className="btn btn-ghost normal-case text-xl">Job Bazar</a>
@@ -31,7 +31,7 @@ const NavBar = () => {
                     </div>
 
                     <div>
-                        <div className="order-1  drawer-end">
+                        <div className="order-1  drawer-end z-50">
                             <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
                             <div className="drawer-content">
                                 {/* Page content here */}
