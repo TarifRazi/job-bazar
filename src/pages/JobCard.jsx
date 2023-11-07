@@ -1,9 +1,12 @@
+
 import { Link } from "react-router-dom";
 
 
 const JobCard = ({ job }) => {
 
     const { jobTitle, category, applicationDeadline, image, _id } = job
+
+    
 
     return (
         <div>

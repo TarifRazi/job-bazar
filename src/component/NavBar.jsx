@@ -42,9 +42,10 @@ const NavBar = () => {
                                 <ul className="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
                                     {/* Sidebar content here */}
                                     <li><Link to={'/'}>Home</Link></li>
-                                    <li><Link to={'/'}>Home</Link></li>
-                                    <li><Link to={'/'}>Home</Link></li>
-                                    <li><Link to={'/'}>Home</Link></li>
+                                    <li><Link to={'/appliedJobs'}> Applied Jobs</Link></li>
+                                    <li><Link to={'/addJob'}> Add A Job</Link></li>
+                                    <li><Link to={'/myJobs'}>My Jobs</Link></li>
+                                    <li><Link to={'/blogs'}>Blogs</Link></li>
                                     <li><Link to={'/login'}>Login</Link></li>
                                 </ul>
                             </div>

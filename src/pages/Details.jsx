@@ -7,6 +7,26 @@ const Details = () => {
     const data = useLoaderData()
     console.log(data)
 
+    const handleAppliedJob = (event) => {
+        event.preventDefault();
+
+        fetch('http://localhost:5000/appliedJobs', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if(data.insertedId){
+                alert('ljgljf')
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    }
+
     return (
         <div>
             <div className="my-8 card lg:card-side bg-base-100 shadow-xl">
@@ -20,7 +40,7 @@ const Details = () => {
                     <p>Salary range{data.salaryRange}</p>
                     <p>Applicants: {data.jobApplicantsNumber}</p>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Apply</button>
+                        <button className="btn btn-primary" onClick={handleAppliedJob}>Apply</button>
                     </div>
                 </div>
             </div>
