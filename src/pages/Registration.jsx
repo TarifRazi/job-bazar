@@ -17,7 +17,7 @@ const Registration = () => {
 
         console.log(name,photo,email,password);
 
-        createUser(email,password)
+        createUser(email,password,photo)
         .then(result => {
             const user = result.user;
             console.log(user)

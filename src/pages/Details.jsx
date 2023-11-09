@@ -1,5 +1,5 @@
 import { useLoaderData } from "react-router-dom";
-
+import Swal from 'sweetalert2'
 
 
 const Details = () => {
@@ -17,14 +17,26 @@ const Details = () => {
             },
             body: JSON.stringify(data)
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            if(data.insertedId){
-                alert('ljgljf')
-            }
-        })
-        .catch(error => console.error('Error:', error));
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                console.log(data.error && "Error Found");
+                // if(data.hasOwnProperty(error))
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: "Good job!",
+                        text: "You clicked the button!",
+                        icon: "success"
+                    })
+                }else{
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "Already applied for this job"
+                      });
+                }
+            })
+            .catch(error => console.error('Error:', error));
     }
 
     return (
@@ -42,6 +54,7 @@ const Details = () => {
                     <div className="card-actions justify-end">
                         <button className="btn btn-primary" onClick={handleAppliedJob}>Apply</button>
                     </div>
+                    
                 </div>
             </div>
         </div>
