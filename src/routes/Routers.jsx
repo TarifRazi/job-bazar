@@ -8,6 +8,7 @@ import Details from "../pages/Details";
 import AppliedJobs from "../pages/AppliedJobs";
 import Blogs from "../pages/Blogs";
 import AddJob from "../pages/AddJob";
+import MyJobs from './../pages/MyJobs';
 
 const routes = createBrowserRouter([
     {
@@ -48,6 +49,10 @@ const routes = createBrowserRouter([
             {
                 path:'/addJob',
                 element:<AddJob></AddJob>
+            },
+            {
+                path:'/myJobs',
+                element:<MyJobs></MyJobs>
             }
         ]
     }
