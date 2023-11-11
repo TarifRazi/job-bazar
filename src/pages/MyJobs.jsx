@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
+import { data } from "autoprefixer";
 
 const MyJobs = () => {
 
@@ -26,18 +27,26 @@ const MyJobs = () => {
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
             confirmButtonText: "Yes, delete it!"
-          }).then((result) => {
+        }).then((result) => {
             if (result.isConfirmed) {
-            //   Swal.fire({
-            //     title: "Deleted!",
-            //     text: "Your file has been deleted.",
-            //     icon: "success"
-            //   });
-            
 
-            
+                fetch(`http://localhost:5000/myJobs/${_id}`,{
+                    method:'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your job has been deleted.",
+                                icon: "success"
+                            });
+                        }
+                    })
+
             }
-          });
+        });
     }
 
     return (
