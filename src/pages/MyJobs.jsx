@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
-import { data } from "autoprefixer";
+import { Link } from "react-router-dom";
 
 const MyJobs = () => {
 
@@ -63,7 +63,10 @@ const MyJobs = () => {
                             <h3>{_job.salaryRange}</h3>
                             <h3>{_job.applicationDeadline}</h3>
                             <div className="card-actions justify-end">
+                                <Link to={`/updateAJob/${(_job._id)}`}>
                                 <button className="btn btn-primary">Update</button>
+
+                                </Link>
                                 <button onClick={() => handleDelete(_job._id)} className="btn btn-error">Delete</button>
                             </div>
                         </div>

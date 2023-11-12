@@ -13,7 +13,7 @@ const AddJob = () => {
 
         const form=event.target
 
-        const photoURL = form.photoURL.value;
+        const image = form.image.value;
         const jobTitle = form.jobTitle.value;
         const userName = form.userName.value;
         const category = form.category.value;
@@ -23,7 +23,7 @@ const AddJob = () => {
         const applicationDeadline = form.applicationDeadline.value;
         const applicantNumber = form.applicantNumber.value;
 
-        const newJob = {photoURL, jobDetails, jobTitle, userName, userEmail:user?.email, category, salaryRange, postingDate, applicantNumber, applicationDeadline}
+        const newJob = {image, jobDetails, jobTitle, userName, userEmail:user?.email, category, salaryRange, postingDate, applicantNumber, applicationDeadline}
 
         console.log(newJob)
 
@@ -60,7 +60,7 @@ const AddJob = () => {
                             <label className="label">
                                 <span className="label-text">Picture URL of the Job Banner</span>
                             </label>
-                            <input name="photoURL" type="text" placeholder="Photo URL" className="input input-bordered" required />
+                            <input name="image" type="text" placeholder="Photo URL" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
