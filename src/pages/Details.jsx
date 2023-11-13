@@ -1,11 +1,15 @@
+import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import Swal from 'sweetalert2'
+import { AuthContext } from "../provider/AuthProvider";
 
 
 const Details = () => {
 
     const data = useLoaderData()
     console.log(data)
+
+    const {user} = useContext(AuthContext)
 
     const handleAppliedJob = (event) => {
         event.preventDefault();
@@ -15,7 +19,7 @@ const Details = () => {
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(data, user.email)
         })
             .then(res => res.json())
             .then(data => {

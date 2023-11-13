@@ -9,13 +9,16 @@ const MyJobs = () => {
 
     const [myJobs, setMyJobs] = useState([])
 
+
     useEffect(() => {
         fetch(`http://localhost:5000/myJobs/${user?.email}`)
             .then((res) => res.json())
             .then((data) => setMyJobs(data))
+
+        
     }, [user])
 
-    // const {_id} = data
+
 
     const handleDelete = _id => {
         console.log(_id)
@@ -30,8 +33,8 @@ const MyJobs = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/myJobs/${_id}`,{
-                    method:'DELETE'
+                fetch(`http://localhost:5000/myJobs/${_id}`, {
+                    method: 'DELETE'
                 })
                     .then(res => res.json())
                     .then(data => {
@@ -43,6 +46,9 @@ const MyJobs = () => {
                                 icon: "success"
                             });
                         }
+
+                        const remaining = myJobs.filter(job => job._id !== _id)
+                        setMyJobs(remaining)
                     })
 
             }
@@ -64,7 +70,7 @@ const MyJobs = () => {
                             <h3>{_job.applicationDeadline}</h3>
                             <div className="card-actions justify-end">
                                 <Link to={`/updateAJob/${(_job._id)}`}>
-                                <button className="btn btn-primary">Update</button>
+                                    <button className="btn btn-primary">Update</button>
 
                                 </Link>
                                 <button onClick={() => handleDelete(_job._id)} className="btn btn-error">Delete</button>
