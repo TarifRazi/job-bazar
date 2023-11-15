@@ -9,11 +9,11 @@ const AppliedJobs = () => {
     return (
         <div className="max-w-7xl mx-auto">
             {
-                        jobsApplied.map(jobsApplied => <AppliedJobsCard
-                            key={jobsApplied._id}
-                            jobsApplied={jobsApplied}
-                        ></AppliedJobsCard>)
-                    }
+                jobsApplied.map(jobsApplied => <AppliedJobsCard
+                    key={jobsApplied._id}
+                    jobsApplied={jobsApplied}
+                ></AppliedJobsCard>)
+            }
         </div>
     );
 };

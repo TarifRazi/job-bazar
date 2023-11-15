@@ -18,7 +18,7 @@ const AppliedJobsCard = ({jobsApplied}) => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/appliedJobs/${_id}`,{
+                fetch(`https://job-bazar-server.vercel.app/appliedJobs/${_id}`,{
                     method:'DELETE'
                 })
                     .then(res => res.json())

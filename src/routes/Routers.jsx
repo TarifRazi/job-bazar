@@ -11,6 +11,7 @@ import AddJob from "../pages/AddJob";
 import MyJobs from './../pages/MyJobs';
 import UpdateAJob from "../pages/UpdateAJob";
 import PrivateRoute from "./PrivateRoute";
+import NotFound from "../pages/NotFound";
 
 const routes = createBrowserRouter([
     {
@@ -20,7 +21,7 @@ const routes = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/allJobs')
+                loader: () => fetch('https://job-bazar-server.vercel.app/allJobs')
             },
             {
                 path: '/profile',
@@ -37,12 +38,12 @@ const routes = createBrowserRouter([
             {
                 path: '/jobDetails/:id',
                 element: <PrivateRoute><Details></Details></PrivateRoute> ,
-                loader: ({params}) => fetch(`http://localhost:5000/allJobs/${params.id}`)
+                loader: ({params}) => fetch(`https://job-bazar-server.vercel.app/allJobs/${params.id}`)
             },
             {
                 path: '/appliedJobs',
                 element: <PrivateRoute><AppliedJobs></AppliedJobs></PrivateRoute>,
-                loader: () => fetch(`http://localhost:5000/appliedJobs`)
+                loader: () => fetch(`https://job-bazar-server.vercel.app/appliedJobs`)
             },
             {
                 path:'/blogs',
@@ -59,9 +60,14 @@ const routes = createBrowserRouter([
             {
                 path:'/updateAJob/:id',
                 element:<PrivateRoute><UpdateAJob></UpdateAJob></PrivateRoute> ,
-                loader:({params})=>fetch(`http://localhost:5000/allJobs/${params.id}`)
+                loader:({params})=>fetch(`https://job-bazar-server.vercel.app/allJobs/${params.id}`)
             }
-        ]
+        ],
+        
+    },
+    {
+        path:'/notFound',
+        element:<NotFound></NotFound>
     }
 ]);
 

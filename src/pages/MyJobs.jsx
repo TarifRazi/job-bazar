@@ -11,7 +11,7 @@ const MyJobs = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myJobs/${user?.email}`)
+        fetch(`https://job-bazar-server.vercel.app/myJobs/${user?.email}`)
             .then((res) => res.json())
             .then((data) => setMyJobs(data))
 

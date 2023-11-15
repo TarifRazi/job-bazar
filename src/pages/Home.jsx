@@ -1,15 +1,28 @@
 import { useLoaderData } from 'react-router-dom';
 import employ from '../assets/man-at-the-office.png'
 import JobCard from './JobCard';
-import { useState } from 'react';
+import {  useState } from 'react';
+
+
 
 
 const Home = () => {
 
-    const jobs = useLoaderData();
-
     const [selectedCategory, setSelectedCategory] = useState('All category'); // Step 1: Add state
+    // const [allJobs, setAllJobs] = useState([])
 
+    // useEffect(() => {
+    //     fetch(`https://job-bazar-server.vercel.app/allJobs`)
+    //         .then((res) => res.json())
+    //         .then((data) => setAllJobs(data))
+            
+    // }, [])
+
+    const jobs = useLoaderData();
+    console.log(jobs)
+    
+
+    
     const handleCategoryChange = (e) => {
         setSelectedCategory(e.target.value); // Step 2: Update selected category
     };
@@ -49,7 +62,7 @@ const Home = () => {
             </select>
 
             <div className='flex justify-center my-8'>
-                <div className='grid sm:grid-cols-1 lg:grid-cols-3 gap-5 items-center align-middle w-full'>
+                <div className='grid sm:grid-cols-1 lg:grid-cols-2 gap-5 items-center align-middle w-full'>
 
 
                     {

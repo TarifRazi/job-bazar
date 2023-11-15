@@ -28,7 +28,7 @@ const UpdateAJob = () => {
 
         console.log(updateJob)
 
-        fetch(`http://localhost:5000/myJobs/${_id}`, {
+        fetch(`https://job-bazar-server.vercel.app/myJobs/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

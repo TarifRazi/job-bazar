@@ -14,7 +14,7 @@ const Details = () => {
     const handleAppliedJob = (event) => {
         event.preventDefault();
 
-        fetch('http://localhost:5000/appliedJobs', {
+        fetch('https://job-bazar-server.vercel.app/appliedJobs', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
